@@ -16,7 +16,8 @@
   (voix + bruit. Obj -> filtrer ce bruit quand on appuie sur le bouton.)
 
 - https://www.researchgate.net/publication/264337037_Active_Noise_Control_Basic_Understanding
-
+- git interessant avec pistes sons : https://github.com/ShellAlbert/NR4ARM/blob/master/AudioRDP/zaudioplaythread.cpp
+- priviliégier LMS ? FX FXLMS ?? voir avec thomas
 
 ## Vocabulaire
 
