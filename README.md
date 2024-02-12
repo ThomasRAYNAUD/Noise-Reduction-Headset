@@ -14,3 +14,13 @@
 
 - somme de signaux : https://www.researchgate.net/figure/Delayless-sub-band-ANC-system-using-the-FXLMS-algorithm_fig3_235923183
   (voix + bruit. Obj -> filtrer ce bruit quand on appuie sur le bouton.)
+
+- https://www.researchgate.net/publication/264337037_Active_Noise_Control_Basic_Understanding
+
+
+## Vocabulaire
+
+- **ANR** : Active Noise Reduction.
+- **PNR** : Passive Noise Reduction.
+- **LMS** : Least Mean Square.
+- **FxLMS** : Filtered-x Least Mean Square.
