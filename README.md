@@ -11,3 +11,5 @@
 - https://iopscience.iop.org/article/10.1088/1742-6596/1228/1/012064/pdf
 
 - convergence FxLMS : https://www.sciencedirect.com/science/article/pii/S2212017316304741
+
+- somme de signaux : voix + bruit. Obj -> filtrer ce bruit quand on appuie sur le bouton.
