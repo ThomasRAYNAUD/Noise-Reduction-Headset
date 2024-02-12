@@ -12,4 +12,5 @@
 
 - convergence FxLMS : https://www.sciencedirect.com/science/article/pii/S2212017316304741
 
-- somme de signaux : voix + bruit. Obj -> filtrer ce bruit quand on appuie sur le bouton.
+- somme de signaux : https://www.researchgate.net/figure/Delayless-sub-band-ANC-system-using-the-FXLMS-algorithm_fig3_235923183
+  (voix + bruit. Obj -> filtrer ce bruit quand on appuie sur le bouton.)
