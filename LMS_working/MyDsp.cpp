@@ -8,7 +8,7 @@
 MyDsp::MyDsp() : AudioStream(AUDIO_OUTPUTS, new audio_block_t*[AUDIO_OUTPUTS]),
                 noise(), // OK
                 oneZero(), // OK
-                mu(0.01), // OK
+                mu(0.001), // OK
                 adaptSignal(0.0), // OK
                 error(0), // OK
                 output_H(0)
@@ -59,14 +59,13 @@ void MyDsp::outputError() {
   Serial.println(error);
 }
 
-void MyDsp::correctionCoef() { 
+void MyDsp::correctionCoef() {
     for (int k = 0; k < NUM_COEFFICIENTS; k++) {
         coefficients[k] = coefficients[k] + (mu * error * input[NUM_COEFFICIENTS - 1]) ;
     }
 }
 
 void MyDsp::update(void) {
-  delay(1000);
     audio_block_t *outBlock[AUDIO_OUTPUTS];
     for (int channel = 0; channel < AUDIO_OUTPUTS; channel++) {
         outBlock[channel] = allocate();
@@ -74,7 +73,7 @@ void MyDsp::update(void) {
             for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) {
                 float currentSample = oneZero.tick(noise.tick()) * 0.5;
                 LMS(currentSample);
-                currentSample = max(-1.0, min(1.0, adaptSignal));
+                currentSample = max(-1.0, min(1.0, error));
                 int16_t val = currentSample * MULT_16;
                 outBlock[channel]->data[i] = val;
             }
