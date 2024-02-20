@@ -1,6 +1,7 @@
 #ifndef faust_teensy_h_
 #define faust_teensy_h_
-#define NUM_COEFFICIENTS 2
+#define NUM_COEFFICIENTS 256
+#define AUDIO_OUTPUTS 2
 
 #include "Arduino.h"
 #include "AudioStream.h"
