@@ -1,6 +1,4 @@
 #include "MyDsp.h"
-#define NUM_COEFFICIENTS 2
-#define AUDIO_OUTPUTS 2
 #define MULT_16 32767
 #define DIV_16 0.0000305185
 #define BUFFER_SIZE NUM_COEFFICIENTS
@@ -8,7 +6,7 @@
 MyDsp::MyDsp() : AudioStream(AUDIO_OUTPUTS, new audio_block_t*[AUDIO_OUTPUTS]),
                 noise(),
                 oneZero(),
-                mu(0.0001),
+                mu(0.01),
                 adaptSignal(0.0),
                 error(0),
                 output_H(0)
@@ -77,6 +75,7 @@ void MyDsp::update(void) {
                     int16_t val = currentSample * MULT_16;
                     outBlock[channel]->data[i] = val;    
                     LMS(currentSample);
+                    Serial.println(error);
                     currentSample = max(-1.0f, min(1.0f, error)); // Utilisation de la notation flottante pour les constantes
                     val = currentSample * MULT_16; // Il est nécessaire de déclarer val à nouveau ici
                     outBlock[channel]->data[i] = val;
