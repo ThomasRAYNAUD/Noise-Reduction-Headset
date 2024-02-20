@@ -9,7 +9,7 @@ AudioConnection patchCord1(myDsp,0,out,1);
 
 void setup() {
   Serial.begin(9600);
-  AudioMemory(2);
+  AudioMemory(6);
   audioShield.enable();
   
 }
