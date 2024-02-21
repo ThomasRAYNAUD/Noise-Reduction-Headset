@@ -1,7 +1,7 @@
 #ifndef faust_teensy_h_
 #define faust_teensy_h_
 #define NUM_COEFFICIENTS 256
-#define AUDIO_OUTPUTS 2
+#define AUDIO_OUTPUTS 1
 
 #include "Arduino.h"
 #include "AudioStream.h"
@@ -30,12 +30,12 @@ class MyDsp : public AudioStream
   private:
     Noise noise;
     OneZero oneZero;
-    float mu ; 
     float adaptSignal;
     float error ;
     float output_H ;
     float input[NUM_COEFFICIENTS] ;
     float coefficients[NUM_COEFFICIENTS];
+    double mu;
 };
 
 #endif
