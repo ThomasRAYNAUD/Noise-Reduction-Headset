@@ -3,13 +3,14 @@
 #define DIV_16 0.0000305185
 #define BUFFER_SIZE NUM_COEFFICIENTS
 
+
 MyDsp::MyDsp() : AudioStream(AUDIO_OUTPUTS, new audio_block_t*[AUDIO_OUTPUTS]),
                 noise(),
                 oneZero(),
-                mu(0.01),
                 adaptSignal(0.0),
                 error(0),
-                output_H(0)
+                output_H(0),
+                mu(0.01)
 {
     for (int i = 0; i < NUM_COEFFICIENTS; i++) {
         coefficients[i] = 0.0 ;
@@ -47,6 +48,7 @@ void MyDsp::adaptativeFilter() {
 
 void MyDsp::outputError() {
   error = output_H - adaptSignal ;
+  Serial.println(error);
 }
 
 void MyDsp::correctionCoef() {
@@ -63,7 +65,8 @@ bool MyDsp::lireEtatBouton() {
 }
 
 
-void MyDsp::update(void) {
+void MyDsp::update(void) {  
+  
     audio_block_t *outBlock[AUDIO_OUTPUTS];
     if (lireEtatBouton()) {
       for (int channel = 0; channel < AUDIO_OUTPUTS; channel++) {
@@ -74,8 +77,9 @@ void MyDsp::update(void) {
                     currentSample = max(-1.0f, min(1.0f, currentSample)); // Utilisation de la notation flottante pour les constantes
                     int16_t val = currentSample * MULT_16;
                     outBlock[channel]->data[i] = val;    
+                    
                     LMS(currentSample);
-                    Serial.println(error);
+                     
                     currentSample = max(-1.0f, min(1.0f, error)); // Utilisation de la notation flottante pour les constantes
                     val = currentSample * MULT_16; // Il est nécessaire de déclarer val à nouveau ici
                     outBlock[channel]->data[i] = val;
@@ -85,6 +89,10 @@ void MyDsp::update(void) {
             }
         }
     } else {
+      double value = analogRead(A0);
+      mu = value/1200;
+     //Serial.println(mu,3);
+    
       for (int channel = 0; channel < AUDIO_OUTPUTS; channel++) {
         for (int i = 0; i < NUM_COEFFICIENTS; i++) {
         coefficients[i] = 0.0 ;
