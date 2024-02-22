@@ -1,13 +1,17 @@
-# Réduction de bruit active
+Réduction de bruit active
 
-## But du projet
-> Le but du projet est d'implémenter en C++ l'algorithme de traitement audio LMS sur un teensy arduino 4.0 permettant de réduire le bruit ambiant. Pour cela, on fait appel à la librairie MyDsp de teensy qui permet d'échantilloner des signaux audio. Le traitement s'éffectuera sur chacun des échantillons.
+But du projet
+Le but du projet est d'implémenter en C++ l'algorithme de traitement audio LMS sur un teensy arduino 4.0 permettant de réduire le bruit ambiant. Pour cela, on fait appel à la librairie MyDsp de teensy qui permet d'échantilloner des signaux audio. Le traitement s'éffectuera sur chacun des échantillons.
 
-## Etat du projet
-> La version actuelle fait appel à un bruit blanc généré en interne par le teensy et qu'il va chercher à supprimer avec l'algorithme. Ce programme peut servir de base pour l'implémentation d'un système haut-parleur/microphone en tant que source de bruit.
+Etat du code 
+La version actuelle fait appel à un bruit blanc généré en interne par le teensy et qu'il va chercher à supprimer avec l'algorithme.
 
-## Contenu
-> Le dossier contient trois fichiers :
+Perspectives d'amélioration
+Ce programme peut servir de base pour l'implémentation d'un système haut-parleur/microphone en tant que source de bruit.
+Il peut également être utilisé dans une configuration FxLMS.
+
+Contenu
+Le dossier contient trois fichiers :
 > - MyDsp.h contient les définitions de fonctions et de variables.
 > - MyDsp.cpp contient le code des fonctions et le traitement audio réalisé par le teensy.
 > - active_noise_reduction.ino permet de gérer les entrées/sorties du teensy.
