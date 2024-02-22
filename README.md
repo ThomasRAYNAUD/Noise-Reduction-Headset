@@ -1,4 +1,4 @@
-# Noise-Reduction-Headset
+# Réduction de bruit active
 
 ## But du projet
 > Le but du projet est d'implémenter en C++ l'algorithme de traitement audio LMS sur un teensy arduino 4.0 permettant de réduire le bruit ambiant. Pour cela, on fait appel à la librairie MyDsp de teensy qui permet d'échantilloner des signaux audio. Le traitement s'éffectuera sur chacun des échantillons.
