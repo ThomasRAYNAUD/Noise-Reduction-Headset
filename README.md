@@ -1,5 +1,6 @@
 # Noise-Reduction-Headset
 > Le but du projet est d'implémenter en C++ l'algorithme de traitement audio LMS sur un teensy arduino 4.0 permettant de réduire le bruit ambiant. Pour cela, on fait appel à la librairie MyDsp de teensy qui permet d'échantilloner des signaux audio. Le traitement s'éffectuera sur chacun des échantillons.
+
 > La version actuelle fait appel à un bruit blanc généré en interne par le teensy et qu'il va chercher à supprimer avec l'algorithme. Ce programme peut servir de base pour l'implémentation d'un système haut-parleur/microphone en tant que source de bruit.
 
 
@@ -19,7 +20,6 @@
 
 - https://www.researchgate.net/publication/264337037_Active_Noise_Control_Basic_Understanding
 
-- 
 ## Vocabulaire
 
 - **ANR** : Active Noise Reduction.
